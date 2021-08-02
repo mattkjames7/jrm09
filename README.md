@@ -32,10 +32,10 @@ The model accepts right-handed System III coordinates either in Cartesian form (
 import jrm09
 
 #get some Cartesian field vectors (MaxDeg keyword is optional)
-Bx,By,Bz = jrm09.ModelCart(x,y,z,MaxDeg=4)
+Bx,By,Bz = jrm09.ModelCart(x,y,z,MaxDeg=10)
 
 #or spherical polar ones
-Br,Bt,Bp = jrm09.Model(r,theta,phi,MaxDeg=4)
+Br,Bt,Bp = jrm09.Model(r,theta,phi,MaxDeg=10)
 ```
 
 Please read the docstrings for `jrm09.Model()` and `jrm09.ModelCart()` using `help` or `?` e.g. `help(jrm09.Model)` .
