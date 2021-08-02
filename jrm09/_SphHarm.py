@@ -4,7 +4,34 @@ from ._Legendre import _Legendre
 from ._Schmidt import _Schmidt
 
 def _SphHarm(r,theta,phi,MaxDeg=10):
-
+	'''
+	This function calculates the JRM09 model field using spherical
+	harmonics. 
+	
+	Inputs
+	======
+	r : float
+		Radial coordinate in Rj (69,911 km).
+	theta : float
+		Colatitude in radians (RH SIII).
+	phi : float
+		Azimuth in radians (RH SIII).
+	MaxDeg : int
+		Maximum degree of the model to use - can be 1 to 10 (default=10)
+		for JRM09, where larger degrees take longer to process, but are
+		better.
+	
+	Returns
+	=======
+	Br : float
+		Magnetic field strength in radial direction (nT).
+	Bt : float
+		Magnetic field strength in latitudinal direction (nT).
+	Bp : float
+		Magnetic field strength in azimuthal direction (nT).
+	
+	'''
+	
 
 	#calculate cosmphi and sinmphi
 	nr = np.size(r)
