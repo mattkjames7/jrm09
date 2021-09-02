@@ -62,7 +62,7 @@ def _SphHarm(r,theta,phi,MaxDeg=10):
 	#Normalize the polynomials
 	SP = (Pnm.T*Snm.T).T
 	SdP = (dPnm.T*Snm.T).T
-
+	
 	#temporary arrays for the inner sums
 	sumr = np.zeros((r.size,),dtype='float64')
 	sumt = np.zeros((r.size,),dtype='float64')

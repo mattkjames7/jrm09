@@ -8,4 +8,8 @@ from ._SphHarm import _SphHarm
 from ._Legendre import _Legendre
 from .Model import Model
 from .ModelCart import ModelCart
-from .Test import Test
+from .Test import Test,TestCompFunc
+
+
+#this code will be removed after verification
+from .CompFunc import CompFunc,CompFuncCart
