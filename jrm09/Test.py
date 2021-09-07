@@ -1,5 +1,6 @@
 import numpy as np
 from .Model import Model
+import time
 
 def Test(R=0.85,MaxDeg=10):
 	'''
@@ -68,3 +69,46 @@ def Test(R=0.85,MaxDeg=10):
 	cbar.set_label('$B_r$ (Gauss) at $r$ = {:4.2f}'.format(R) + ' R$_{j}$')
 	
 	return ax
+
+
+def Timing(R=0.85,MaxDeg=10):
+
+		#get the coordinates to calculate the model at
+	lat = np.linspace(-90,90,181)
+	lon = np.linspace(0.0,360.0,361)
+	latc = 0.5*(lat[1:] + lat[:-1])
+	lonc = 0.5*(lon[1:] + lon[:-1])
+	long,latg = np.meshgrid(lon,lat)
+	longc,latgc = np.meshgrid(lonc,latc)
+
+	longcr = longc*np.pi/180.0
+	latgcr = (90.0 - latgc)*np.pi/180.0
+	r = np.zeros(longcr.shape) + R
+
+	
+	print('Timing 64800 model vectors')
+	t0 = time.time()
+
+	for i in range(0,10):
+		#calculate the model
+		Br,Bt,Bp = Model(r,latgcr,longcr,MaxDeg)
+		
+	t1 = time.time()
+	print('Completed in {:f}s'.format((t1-t0)/10.0))
+
+	r0 = np.random.rand()*5 + 1.0
+	lat0 = np.random.rand()*np.pi
+	lon0 = np.random.rand()*np.pi*2
+
+	
+	print('Timing 10000 individual vectors')
+	t0 = time.time()
+
+	for i in range(0,10000):
+		#calculate the model
+		Br,Bt,Bp = Model(r0,lat0,lon0,MaxDeg)
+		
+	t1 = time.time()
+	print('Completed in {:f}s'.format((t1-t0)/10000.0))	
+	
+	
