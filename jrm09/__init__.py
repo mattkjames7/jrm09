@@ -6,6 +6,6 @@ from ._CoeffGrids import _CoeffGrids
 from ._Schmidt import _Schmidt
 from ._SphHarm import _SphHarm
 from ._Legendre import _Legendre
-from .Model import Model
-from .ModelCart import ModelCart
-from .Test import Test,Timing
+from .Model import Model,ModelScalar
+from .ModelCart import ModelCart,ModelCartScalar
+from .Test import Test,Timing,TimeVectorized,TimeVectorizedLoop,TimeScalarLoop
