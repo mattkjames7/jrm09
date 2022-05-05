@@ -37,7 +37,7 @@ def ModelCart(x,y,z,MaxDeg=10):
 	r = np.sqrt(x**2 + y**2 + z**2)
 	theta = np.arccos(z/r)
 	phi = (np.arctan2(y,x) + (2*np.pi)) % (2*np.pi)
-	
+
 	#call the model
 	Br,Bt,Bp = Model(r,theta,phi,MaxDeg)
 

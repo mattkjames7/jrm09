@@ -41,7 +41,7 @@ def _SphHarm(r,theta,phi,MaxDeg=10):
 		mphi = m*phi
 		cosmphi[m] = np.cos(mphi)
 		sinmphi[m] = np.sin(mphi)
-	
+
 	#get the grids of g and h parameters
 	g,h = _CoeffGrids()
 	
@@ -127,7 +127,6 @@ def _SphHarmScalar(r,theta,phi,MaxDeg=10):
 	
 	'''
 	
-
 	#calculate cosmphi and sinmphi
 	cosmphi = np.zeros((MaxDeg+1),dtype='float64') + 1.0
 	sinmphi = np.zeros((MaxDeg+1),dtype='float64')
@@ -135,14 +134,14 @@ def _SphHarmScalar(r,theta,phi,MaxDeg=10):
 		mphi = m*phi
 		cosmphi[m] = np.cos(mphi)
 		sinmphi[m] = np.sin(mphi)
-	
+
 	#get the grids of g and h parameters
 	g,h = _CoeffGrids()
 	
 	#output arrays
-	Br = 0.0
-	Bt = 0.0
-	Bp = 0.0
+	Br = np.float64(0.0)
+	Bt = np.float64(0.0)
+	Bp = np.float64(0.0)
 	
 
 	#start calculating p costheta and its derivative
@@ -158,9 +157,9 @@ def _SphHarmScalar(r,theta,phi,MaxDeg=10):
 	SdP = dPnm*Snm
 
 	#temporary arrays for the inner sums
-	sumr = 0.0
-	sumt = 0.0
-	sump = 0.0
+	sumr = np.float64(0.0)
+	sumt = np.float64(0.0)
+	sump = np.float64(0.0)
 	
 	#now sum everything up
 	r1 = 1/r

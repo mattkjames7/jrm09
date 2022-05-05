@@ -97,7 +97,7 @@ def _LegendreScalar(theta,MaxDeg=10):
 #				Pnm[n,m] = n21*sintheta*Pnm[n-1,m-1]
 #				dPnm[n,m] = n21*(costheta*Pnm[n-1,m-1] + sintheta*dPnm[n-1,m-1])
 			else:
-				nm1 = n + m + 1
+				nm1 = n + m - 1
 				d1nm = 1.0/(n-m)
 				n2 = n - 2
 				Pnm[n,m] = d1nm*(costheta*n21*Pnm[n1,m] - nm1*Pnm[n2,m])
